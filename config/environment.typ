@@ -74,7 +74,7 @@
   // MARK: Title
   // configure title page
   set align(center)
-  image("logo.jpg", alt: "logo", width: 50%)
+  image("logo.jpg", alt: "logo", width: 40%)
   v(40pt)
   text(19pt, title, weight: "bold")
   linebreak()
@@ -104,7 +104,7 @@
   text(datetime.today().display("[day].[month].[year]"), 14pt)
 
   if first_corrector != "" {
-    v(200pt)
+    v(150pt)
     grid(
       rows:  (auto, auto),
       row-gutter: 5pt,

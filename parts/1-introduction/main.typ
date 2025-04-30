@@ -1,5 +1,5 @@
-#import "../../modules/environment.typ" as env
-#import "../../modules/state.typ": bib_state
+#import "../../config/environment.typ" as env
+#import "../../config/state.typ": bib_state
 
 #context bib_state.get()
 

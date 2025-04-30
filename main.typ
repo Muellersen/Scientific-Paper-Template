@@ -1,5 +1,5 @@
-#import "modules/environment.typ" as env
-#import "modules/state.typ": bib_state
+#import "config/environment.typ" as env
+#import "config/state.typ": bib_state
 
 #bib_state.update(none)
 
@@ -41,5 +41,5 @@
 #bibliography(
   "references.bib",
   title: none,
-  style: "modules/citation-style.csl",
+  style: "config/citation-style.csl",
 )
