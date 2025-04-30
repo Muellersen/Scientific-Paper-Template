@@ -32,9 +32,9 @@ _Enumerations_
 Inline code like this ```py print("Hello World!")```
 
 #list(indent: 1em, spacing: 1.5em, tight: false)[
-  keine Lesezugriffe auf globalen oder externen Zustand und
+  foooooooooooooooooooooooooooooooooooooooo
 ][
-  keine Schreibzugriffe auf globalen oder externen Zustand (auch _Nebeneffekte_ genannt)
+  boooooooooooooooooooooooooooooooooooooooo
 ]
 
 === Figures
@@ -43,6 +43,40 @@ Inline code like this ```py print("Hello World!")```
   image("images/fooClass.png", width: 50%),
   caption: [Codeexample.]
 ) <FigureRef>
+
+
+#import "@preview/subpar:0.2.2"
+#subpar.super(
+  kind: raw,
+  grid(
+    columns: (auto, auto),
+    gutter: 10pt,
+    [
+      #figure(
+        ```py
+        def foo(x):
+            y = 10
+            result = x + y
+            return result
+        ```,
+        caption:[_Pure_]
+      ) <SimplePureFunctionListing>
+    ],
+    [
+      #figure(
+        ```py
+        def foo(x):
+            y = global_variable # impure
+            result = x + y
+            return result
+        ```,
+        caption: [_Impure_]
+      ) <ImpureFunctionGlobalReadListing>
+    ],
+  ),
+  caption: [Nested Figures.],
+  label: <PureImpureExample>
+)
 
 === Listings
 

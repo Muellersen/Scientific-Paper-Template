@@ -153,8 +153,7 @@
 
   // configure math refs
   set math.equation(numbering: num => "(" + str(num) + ")", supplement: none)
-
-
+  
   columns(1, content)
 }
 
