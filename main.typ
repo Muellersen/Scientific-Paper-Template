@@ -27,7 +27,7 @@
   // abstract: include("parts/0-abstract/main.typ") // can be commented out if not needed
 )
 
-// use multiple parts or write everything into one part for better ref handling
+// use multiple parts or write everything into one part for better ref handling through tinymist vscode extension
 #include("parts/1-introduction/main.typ")
 
 #colbreak(weak: true)
