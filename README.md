@@ -1,3 +1,5 @@
 # Scientific Paper Template
 
-A template which can be used for a thesis or homework
+A typst template which can be used for a thesis or homework.
+
+https://typst.app/docs/
