@@ -23,7 +23,8 @@
   second_corrector: "Erika Mustermann", // can be commented out if not needed
   institution: "Template Universität",
   paper_kind: "Bachelorarbeit",
-  hasOutline: true,
+  showOutline: true,
+  showTitlePage: true,
   // abstract: include("parts/0-abstract/main.typ") // can be commented out if not needed
 )
 

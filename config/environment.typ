@@ -6,7 +6,8 @@
   second_corrector: "",
   institution: "",
   paper_kind: "",
-  hasOutline: true,
+  showOutline: true,
+  showTitlePage: true,
   abstract: none,
 ) = {
   // configuration
@@ -73,47 +74,50 @@
 
   // MARK: Title
   // configure title page
-  set align(center)
-  image("logo.jpg", alt: "logo", width: 40%)
-  v(40pt)
-  text(19pt, title, weight: "bold")
-  linebreak()
-  v(5pt)
-  text(14pt, paper_kind)
-  v(60pt)
-
-  let count = authors.len()
-  let ncols = calc.min(count, 3)
-  grid(
-    columns: (1fr,) * ncols,
-    row-gutter: 24pt,
-    ..authors.map(author => [
-      #text(author.name, weight: "bold", 16pt) \
-      #text("Matrikelnummer: " + author.matr_nr, 11pt) \
-      #text("E-Mail: " + link("mailto:" + author.email), 11pt) \
-      
-    ]),
-  )
-  if institution != "" {
+  if showTitlePage == true {
+    
+    set align(center)
+    image("logo.jpg", alt: "logo", width: 40%)
     v(40pt)
-    text(institution, 14pt)
-  } else {
-    none
-  }
-  v(1pt)
-  text(datetime.today().display("[day].[month].[year]"), 14pt)
+    text(19pt, title, weight: "bold")
+    linebreak()
+    v(5pt)
+    text(14pt, paper_kind)
+    v(60pt)
 
-  if first_corrector != "" {
-    v(150pt)
+    let count = authors.len()
+    let ncols = calc.min(count, 3)
     grid(
-      rows:  (auto, auto),
-      row-gutter: 5pt,
-      [#text("Erster Prüfer: " + first_corrector, 14pt) \
-      #text("Zweiter Prüfer: " + second_corrector, 14pt)]
+      columns: (1fr,) * ncols,
+      row-gutter: 24pt,
+      ..authors.map(author => [
+        #text(author.name, weight: "bold", 16pt) \
+        #text("Matrikelnummer: " + author.matr_nr, 11pt) \
+        #text("E-Mail: " + link("mailto:" + author.email), 11pt) \
+        
+      ]),
     )
-  }
+    if institution != "" {
+      v(40pt)
+      text(institution, 14pt)
+    } else {
+      none
+    }
+    v(1pt)
+    text(datetime.today().display("[day].[month].[year]"), 14pt)
 
-  pagebreak()
+    if first_corrector != "" {
+      v(150pt)
+      grid(
+        rows:  (auto, auto),
+        row-gutter: 5pt,
+        [#text("Erster Prüfer: " + first_corrector, 14pt) \
+        #text("Zweiter Prüfer: " + second_corrector, 14pt)]
+      )
+    }
+
+    pagebreak()
+  }
 
   if abstract != none {
     block(width: 85%)[#abstract]
@@ -126,8 +130,10 @@
     v(20pt, weak: true)
     strong(it)
   }
-  outline()
-  pagebreak()
+  if showOutline == true {
+    outline()
+    pagebreak()
+  }
 
   set page(
     numbering: "1"
